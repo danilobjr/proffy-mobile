@@ -17,12 +17,12 @@ const FavoritesPage = () => {
           paddingBottom: 16,
         }}
       >
-        <TeacherItem />
-        <TeacherItem />
-        <TeacherItem />
-        <TeacherItem />
-        <TeacherItem />
-        <TeacherItem />
+        <TeacherItem favorite />
+        <TeacherItem favorite />
+        <TeacherItem favorite />
+        <TeacherItem favorite />
+        <TeacherItem favorite />
+        <TeacherItem favorite />
       </ScrollView>
     </View>
   )

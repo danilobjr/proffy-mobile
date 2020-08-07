@@ -8,7 +8,13 @@ import whatsappIcon from '../../assets/images/icons/whatsapp.png'
 
 import { styles } from './styles'
 
-const TeacherItem: FC = () => {
+type Props = {
+  favorite?: boolean
+}
+
+const TeacherItem: FC<Props> = ({ favorite }) => {
+  const favoriteButtonIcon = !!favorite ? unfavoriteIcon : heartIcon
+
   return (
     <View style={styles.container}>
       <View style={styles.profile}>
@@ -25,8 +31,6 @@ const TeacherItem: FC = () => {
 
       <Text style={styles.bio}>
         Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.
-        {/* {'\n'}{'\n'}
-        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam. */}
       </Text>
 
       <View style={styles.footer}>
@@ -36,8 +40,8 @@ const TeacherItem: FC = () => {
         </Text>
 
         <View style={styles.actions}>
-          <RectButton style={styles.favoriteButton}>
-            <Image source={heartIcon} />
+          <RectButton style={[styles.favoriteButton, !!favorite && styles.favorite]}>
+            <Image source={favoriteButtonIcon} />
           </RectButton>
 
           <RectButton style={styles.contactButton}>

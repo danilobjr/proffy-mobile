@@ -71,6 +71,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  favorite: {
+    backgroundColor: '#e33d3d'
+  },
   contactButton: {
     width: 56,
     height: 56,
