@@ -13,9 +13,8 @@ import heartIcon from '../../assets/images/icons/heart.png'
 const LandingPage = () => {
   const { navigate } = useNavigation()
 
-  const navigateToTeachPage = () => {
-    navigate('Teach')
-  }
+  const navigateToTeachPage = () => navigate('Teach')
+  const navigateToLearnPage = () => navigate('Learn')
 
   {/* FIXME ripple effect not working */}
 
@@ -31,6 +30,7 @@ const LandingPage = () => {
       <View style={styles.actions}>
         <RectButton
           style={[styles.button, styles.buttonPrimary]}
+          onPress={navigateToLearnPage}
         >
           <Image source={studyIcon} />
           <Text style={styles.buttonText}>Learn</Text>
