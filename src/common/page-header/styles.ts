@@ -11,6 +11,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
   },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: "space-between",
+  },
   title: {
     maxWidth: 160,
     marginVertical: 40,
@@ -19,7 +24,6 @@ const styles = StyleSheet.create({
     color: colors.titleOnPrimary,
     lineHeight: 32,
   },
-  backButton: {},
 })
 
 export { styles }
