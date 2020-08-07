@@ -1,6 +1,7 @@
 import React from 'react'
-import { Image, Text, TouchableOpacity, View } from 'react-native'
+import { Image, Text, View } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
+import { RectButton } from 'react-native-gesture-handler'
 
 import { styles } from './styles'
 
@@ -16,6 +17,8 @@ const LandingPage = () => {
     navigate('Teach')
   }
 
+  {/* FIXME ripple effect not working */}
+
   return (
     <View style={styles.container}>
       <Image source={landingImage} style={styles.banner} />
@@ -26,20 +29,20 @@ const LandingPage = () => {
       </Text>
 
       <View style={styles.actions}>
-        <TouchableOpacity
+        <RectButton
           style={[styles.button, styles.buttonPrimary]}
         >
           <Image source={studyIcon} />
           <Text style={styles.buttonText}>Learn</Text>
-        </TouchableOpacity>
+        </RectButton>
 
-        <TouchableOpacity
+        <RectButton
           style={[styles.button]}
           onPress={navigateToTeachPage}
         >
           <Image source={teachIcon} />
           <Text style={styles.buttonText}>Teach</Text>
-        </TouchableOpacity>
+        </RectButton>
       </View>
 
       <Text style={styles.schedules}>
