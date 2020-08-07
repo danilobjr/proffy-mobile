@@ -34,6 +34,9 @@ const styles = {
   activeTintColor: colors.textTitle,
 } as BottomTabBarOptions
 
+const setFocusedIconColor = (focused: boolean, baseColor: string) =>
+  focused ? colors.primary : baseColor
+
 const LearnTabs = () => (
   <Navigator tabBarOptions={styles}>
     <Screen
@@ -41,8 +44,12 @@ const LearnTabs = () => (
       component={TeacherListPage}
       options={{
         tabBarLabel: 'Proffys',
-        tabBarIcon: ({ color, size }) =>
-          <Ionicons name="ios-easel" color={color} size={size} />
+        tabBarIcon: ({ color, size, focused }) =>
+          <Ionicons
+            name="ios-easel"
+            color={setFocusedIconColor(focused, color)}
+            size={size}
+          />
       }}
     />
 
@@ -51,8 +58,12 @@ const LearnTabs = () => (
       component={FavoritesPage}
       options={{
         tabBarLabel: 'Favorites',
-        tabBarIcon: ({ color, size }) =>
-          <Ionicons name="ios-heart" color={color} size={size} />
+        tabBarIcon: ({ color, size, focused }) =>
+          <Ionicons
+            name="ios-heart"
+            color={setFocusedIconColor(focused, color)}
+            size={size}
+          />
       }}
     />
   </Navigator>
