@@ -12,7 +12,7 @@ type Props = {
   title: string
 }
 
-const PageHeader: FC<Props> = ({ title }) => {
+const PageHeader: FC<Props> = ({ title, children }) => {
   const { navigate } = useNavigation()
 
   const backToLandingPage = () => navigate('Landing')
@@ -31,6 +31,8 @@ const PageHeader: FC<Props> = ({ title }) => {
       </View>
 
       <Text style={styles.title}>{title}</Text>
+
+      {children}
     </View>
   )
 }
