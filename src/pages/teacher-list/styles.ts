@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.background,
   },
   list: {
-    marginTop: -60,
+    marginTop: -40,
   },
 })
 
