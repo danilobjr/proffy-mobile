@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { View, ScrollView, Text } from 'react-native'
-import { TextInput, BorderlessButton } from 'react-native-gesture-handler'
+import { TextInput, BorderlessButton, RectButton } from 'react-native-gesture-handler'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { PageHeader } from '../../common/page-header'
 import { TeacherItem } from '../../common/teacher-item'
@@ -43,6 +43,10 @@ const TeacherListPage = () => {
                 <TextInput style={styles.input} placeholder="Which ever you want" />
               </View>
             </View>
+
+            <RectButton style={styles.submitButton}>
+              <Text style={styles.submitButtonText}>Search</Text>
+            </RectButton>
           </View>
         )}
       </PageHeader>

@@ -32,6 +32,19 @@ const styles = StyleSheet.create({
     marginTop: 4,
     marginBottom: 16,
   },
+  submitButton: {
+    height: 56,
+    marginBottom: 10,
+    backgroundColor: colors.secundary,
+    borderRadius: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  submitButtonText: {
+    color: colors.buttonText,
+    fontFamily: fonts.archivo,
+    fontSize: 16,
+  },
 })
 
 export { styles }
