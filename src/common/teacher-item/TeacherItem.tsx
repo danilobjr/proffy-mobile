@@ -8,35 +8,52 @@ import whatsappIcon from '../../assets/images/icons/whatsapp.png'
 
 import { styles } from './styles'
 
-type Props = {
-  favorite?: boolean
+type Teacher = {
+  avatar: string
+  bio: string
+  name: string
+  cost: number
+  subject: string
+  whatsapp: string
 }
 
-const TeacherItem: FC<Props> = ({ favorite }) => {
+type Props = {
+  favorite?: boolean
+  teacher: Teacher
+}
+
+const TeacherItem: FC<Props> = ({ favorite, teacher }) => {
   const favoriteButtonIcon = !!favorite ? unfavoriteIcon : heartIcon
+
+  const {
+    avatar,
+    bio,
+    name,
+    cost,
+    subject,
+    whatsapp,
+  } = teacher
 
   return (
     <View style={styles.container}>
       <View style={styles.profile}>
         <Image
           style={styles.avatar}
-          source={{ uri: 'https://github.com/danilobjr.png' }}
+          source={{ uri: avatar }}
         />
 
         <View style={styles.info}>
-          <Text style={styles.name}>Danilo Barros</Text>
-          <Text style={styles.subject}>Math</Text>
+          <Text style={styles.name}>{name}</Text>
+          <Text style={styles.subject}>{subject}</Text>
         </View>
       </View>
 
-      <Text style={styles.bio}>
-        Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.
-      </Text>
+      <Text style={styles.bio}>{bio}</Text>
 
       <View style={styles.footer}>
         <Text style={styles.price}>
           Price/Hour {'   '}
-          <Text style={styles.value}>US$ 20.00</Text>
+          <Text style={styles.value}>US$ {cost}</Text>
         </Text>
 
         <View style={styles.actions}>
