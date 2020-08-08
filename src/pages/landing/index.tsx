@@ -1,22 +1,28 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Image, Text, View } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { RectButton } from 'react-native-gesture-handler'
-
-import { styles } from './styles'
+import { api } from '../../services'
 
 import landingImage from '../../assets/images/landing.png'
 import studyIcon from '../../assets/images/icons/study.png'
 import teachIcon from '../../assets/images/icons/teach.png'
 import heartIcon from '../../assets/images/icons/heart.png'
 
+import { styles } from './styles'
+
 const LandingPage = () => {
   const { navigate } = useNavigation()
+  const [connectionsAmount, setConnectionsAmount] = useState(0)
+
+  useEffect(() => {
+    api.get('connections').then(response => {
+      setConnectionsAmount(response.data?.connectionsAmount)
+    })
+  }, [])
 
   const navigateToTeachPage = () => navigate('Teach')
   const navigateToLearnPage = () => navigate('Learn')
-
-  {/* FIXME ripple effect not working */}
 
   return (
     <View style={styles.container}>
@@ -46,7 +52,7 @@ const LandingPage = () => {
       </View>
 
       <Text style={styles.schedules}>
-        More than 200 lessons scheduled {' '}
+        {connectionsAmount} lessons scheduled {' '}
         <Image source={heartIcon} />
       </Text>
     </View>
